@@ -103,7 +103,7 @@ public class Consumer extends Thread implements MessageListener, ExceptionListen
 				default: throw new Exception(task.getStatus());
 			}
 			ProcessBuilder processBuilder = new ProcessBuilder(cmd);
-			processBuilder.directory(new File("/tmp/task/bin"));
+			processBuilder.directory(new File("/root/test/task/bin"));
 			Process process = processBuilder.start();
 			String line;
 			BufferedReader in = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -130,8 +130,8 @@ public class Consumer extends Thread implements MessageListener, ExceptionListen
 		try 
 		{
 			TextMessage msg = (TextMessage) message;
-			LOG.info(msg.getText());
-			exec(new Gson().fromJson(msg.getText(),Task.class));
+			LOG.info(msg.toString());
+			exec(new Gson().fromJson(msg.getStringProperty("msgBody"),Task.class));
 		} catch (JMSException e) 
 		{
 			LOG.error(e.getMessage());

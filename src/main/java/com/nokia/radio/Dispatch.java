@@ -60,15 +60,18 @@ public class Dispatch
 		{
 		case "c":new Consumer(url, queue).start();break;
 		case "p":
-		    System.out.print("Period?: ");
-			String period = readInput();
+		    System.out.print("caseRule?: ");
+			String caseRule = readInput();
+		    System.out.print("curTime?: ");
+			String curTime = readInput();
 			Plan plan = new Plan();
 			plan.setSessionId(UUID.randomUUID().toString());
 			plan.setMessageCode("70003");
-			plan.setAppName("LTEiCES");
-			plan.setMoudleName("Test");
-			plan.setTaskName("simpleTask");
-			plan.setPeriod(period);
+			plan.setAppName("LTE");
+			plan.setMoudleName("全网告警数量汇总");
+			plan.setTaskName("task");
+			plan.setCaseRule(caseRule);
+			plan.setCurTime(curTime);
 			plan.setFlag0("");
 			plan.setFlag1("");
 			plan.setFlag2("");

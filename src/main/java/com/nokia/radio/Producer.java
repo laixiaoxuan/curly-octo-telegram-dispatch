@@ -78,9 +78,12 @@ public class Producer extends Thread
 			Destination destination = session.createQueue(subject);
 			producer = session.createProducer(destination);
 			producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
-			TextMessage message = session.createTextMessage(msg);
+			//TextMessage message = session.createTextMessage(msg);
+			TextMessage message = session.createTextMessage();
+			message.setIntProperty("msgCode",70003);
+			message.setStringProperty("msgBody",msg);
 			producer.send(message);
-			LOG.info(message.getText());
+			LOG.info(message.toString());
 		} catch (Exception e) {
 			LOG.error(e.getMessage());
 			e.printStackTrace();

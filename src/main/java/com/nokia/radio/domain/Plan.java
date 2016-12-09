@@ -46,9 +46,15 @@ public class Plan
 	 */
 	private String taskName;
 	/**
-	 * 运行周期
+	 * 运行方案
+	 * 立即执行<now>/每周<week>/每月<month>/每天<day>/15分钟<15mi>
 	 */
-	private String period;
+	private String caseRule;
+	/**
+	 * 运行开始时间，以分钟为最小粒度
+	 * 2016-12-08 16:22
+	 */
+	private String curTime;
 	/**
 	 * 冗余字段1
 	 */
@@ -102,13 +108,21 @@ public class Plan
 	{
 		this.taskName = taskName;
 	}
-	public String getPeriod() 
+	public String getCaseRule() 
 	{
-		return period;
+		return caseRule;
 	}
-	public void setPeriod(String period) 
+	public void setCaseRule(String caseRule) 
 	{
-		this.period = period;
+		this.caseRule = caseRule;
+	}
+	public String getCurTime() 
+	{
+		return curTime;
+	}
+	public void setCurTime(String curTime) 
+	{
+		this.curTime = curTime;
 	}
 	public String getFlag0() 
 	{
